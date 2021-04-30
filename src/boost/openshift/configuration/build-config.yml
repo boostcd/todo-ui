@@ -1,0 +1,17 @@
+config_map:
+  - name: BANK_MS_SERVICE_URI
+    value: http://wiremock.blockchain-demo-build.svc:8080/console-ui/bank-ms
+  - name: WALLET_MS_SERVICE_URI
+    value: http://wiremock.blockchain-demo-build.svc:8080/console-ui/wallet-ms
+  - name: CURRENCY_CONVERTER_MS_SERVICE_URI
+    value: http://wiremock.blockchain-demo-build.svc:8080/console-ui/currency-converter-ms
+  - name: JAEGER_SERVICE_NAME
+    value: build-console-ui
+  - name: JAEGER_SAMPLER_TYPE
+    value: const
+  - name: JAEGER_SAMPLER_PARAM
+    value: 1
+  - name: JAEGER_SAMPLER_MANAGER_HOST_PORT
+    value: jaeger-agent.blockchain-demo-monitoring.svc:5778    
+  - name: JAEGER_AGENT_HOST
+    value: jaeger-agent.blockchain-demo-monitoring.svc      

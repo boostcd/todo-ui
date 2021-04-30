@@ -1,0 +1,4 @@
+setup:
+  - name: boostcd.wiremock_upload
+    repo: "{{ microservice.name }}"
+    json_dir: src/integration-test/resources
