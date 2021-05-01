@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Template
 metadata:
   creationTimestamp: null
-  name: console-ui-build-config
+  name: todo-ui-build-config
 parameters:
 - description: Defines the namespace within which these objects are deployed
   name: NAMESPACE

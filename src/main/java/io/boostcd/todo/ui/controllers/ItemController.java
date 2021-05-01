@@ -36,12 +36,6 @@ public class ItemController {
 		itemService.updateItem(item);
 		return "redirect:/list/" + item.getId() + "/items";
 	}
-
-	@RequestMapping("/addItem")
-	public String addItem(Model model) {
-		model.addAttribute("exchangeRate", new TodoItem());
-		return "item";
-	}
 	
 	@PostMapping("/addItem")
 	public String addItemSubmit(@ModelAttribute TodoItem item) {

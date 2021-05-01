@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Template
 metadata:
   creationTimestamp: null
-  name: console-ui-config
+  name: todo-ui-config
 parameters:
 - description: Defines the namespace within which these objects are deployed
   name: NAMESPACE
@@ -76,21 +76,16 @@ objects:
       spec:
         containers:
           - env:
-              - name: BANK_MS_SERVICE_URI
+              - name: LIST_MS_URI
                 valueFrom:
                   configMapKeyRef:
                     name: "${ENV}${MICROSERVICE}" 
-                    key: BANK_MS_SERVICE_URI
-              - name: WALLET_MS_SERVICE_URI
+                    key: LIST_MS_URI
+              - name: ITEM_MS_URI
                 valueFrom:
                   configMapKeyRef:
                     name: "${ENV}${MICROSERVICE}" 
-                    key: WALLET_MS_SERVICE_URI
-              - name: CURRENCY_CONVERTER_MS_SERVICE_URI
-                valueFrom:
-                  configMapKeyRef:
-                    name: "${ENV}${MICROSERVICE}" 
-                    key: CURRENCY_CONVERTER_MS_SERVICE_URI
+                    key: ITEM_MS_URI
               - name: JAEGER_SERVICE_NAME
                 valueFrom:
                   configMapKeyRef:

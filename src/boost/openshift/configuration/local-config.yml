@@ -1,12 +1,10 @@
 config_map:
-  - name: BANK_MS_SERVICE_URI
-    value: "http://bank-ms.{{ project }}.svc:8080"
-  - name: WALLET_MS_SERVICE_URI
-    value: "http://wallet-ms.{{ project }}.svc:8080"
-  - name: CURRENCY_CONVERTER_MS_SERVICE_URI
-    value: "http://currency-converter-ms.{{ project }}.svc:8080"
+  - name: ITEM_MS_URI
+    value: "http://list-ms.{{ project }}.svc:8080"
+  - name: LIST_MS_URI
+    value: "http://list-ms.{{ project }}.svc:8080"
   - name: JAEGER_SERVICE_NAME
-    value: console-ui
+    value: todo-ui
   - name: JAEGER_SAMPLER_TYPE
     value: const
   - name: JAEGER_SAMPLER_PARAM
