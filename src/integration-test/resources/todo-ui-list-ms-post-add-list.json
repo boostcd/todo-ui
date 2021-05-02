@@ -1,0 +1,13 @@
+{
+	"request": {
+		"method": "POST",
+		"url": "/todo-ui/list-ms/list"
+	},
+	"response": {
+		"status": 200,
+		"body": "{\"title\": \"my list\", \"description\": \"this is my list\" }",
+		"headers": {
+            "Content-Type": "application/json"
+        }
+	}
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+<body>
+	<div layout:fragment="content">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb" th:classappend="${@environment.getProperty('theme.nav.colour')}">
+		    <li class="breadcrumb-item"><a class="text-light" href="/">Lists</a></li>
+		  </ol>
+		</nav>
+		<div class="row">
+			<div class="col">
+				<div th:each="list : ${lists}" class="card mb-3" style="width: 50rem;" id="item">
+				  <div class="card-body">
+				    <h4 class="card-title" th:text="${list.title}"/>
+				    <h5 class="card-subtitle mb-2 text-muted" th:text="Completed/Total + ' ' + ${list.totalItemsCompleted + '/' + list.totalItems}"/>
+				    <p class="card-text"><span th:text="${list.description}"/></p>
+					<a th:href="@{'/list/' + ${list.id} + '/items'}" class="btn btn-sm" th:classappend="${@environment.getProperty('theme.button.colour')}">View</a>
+					<a th:href="@{'/deleteList/' + ${list.id}}" class="btn btn-sm" th:classappend="${@environment.getProperty('theme.button.colour')}">Delete</a>
+				  </div>
+				</div>	
+			</div>	
+			<div class="col" align="right">
+				<a href="/addList" class="btn" th:classappend="${@environment.getProperty('theme.button.colour')}" role="button">Add List</a>
+			</div>		
+		</div>					
+	</div>
+</body>
+</html>

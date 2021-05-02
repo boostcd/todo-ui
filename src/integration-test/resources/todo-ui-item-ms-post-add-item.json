@@ -1,0 +1,13 @@
+{
+	"request": {
+		"method": "POST",
+		"url": "/todo-ui/item-ms/list/1/item"
+	},
+	"response": {
+		"status": 200,
+		"body": "{\"id\": 1, \"listId\": 1, \"notes\": \"this is the first note\", \"completed\": true }",
+		"headers": {
+            "Content-Type": "application/json"
+        }
+	}
+}

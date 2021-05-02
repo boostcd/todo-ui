@@ -1,0 +1,13 @@
+{
+	"request": {
+		"method": "GET",
+		"url": "/todo-ui/list-ms/lists"
+	},
+	"response": {
+		"status": 200,
+		"body": "[{\"id\": 1, \"title\": \"my first list\", \"description\": \"this is the first for all my lists\", \"totalItems\": 2, \"totalItemsCompleted\": 1 }, {\"id\": 2, \"title\": \"my second list\", \"description\": \"this is the second for all my lists\", \"totalItems\": 2, \"totalItemsCompleted\": 1 }]",
+		"headers": {
+            "Content-Type": "application/json"
+        }
+	}
+}

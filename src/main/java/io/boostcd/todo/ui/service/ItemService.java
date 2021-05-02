@@ -20,16 +20,15 @@ public class ItemService {
 	}
 
 	public List<TodoItem> getItemsByList(int id) {
-		return Arrays
-				.asList(restTemplate.getForObject(System.getenv("ITEM_MS_URI") + "/items", TodoItem[].class, id));
+		return Arrays.asList(restTemplate.getForObject(System.getenv("ITEM_MS_URI") + "/list/{1}/items", TodoItem[].class, id));
 	}
 
-	public void updateItem(TodoItem item) {
-		restTemplate.put(System.getenv("ITEM_MS_URI") + "/item", item);
+	public TodoItem addItem(int listId, TodoItem item) {
+		return restTemplate.postForObject(System.getenv("ITEM_MS_URI") + "/list/{1}/item", item, TodoItem.class, listId);
 	}
 
-	public TodoItem addItem(TodoItem item) {
-		return restTemplate.postForObject(System.getenv("ITEM_MS_URI") + "/item", item, TodoItem.class);
+	public TodoItem complete(int id) {
+		return restTemplate.postForObject(System.getenv("ITEM_MS_URI") + "/item/{1}/complete", id, TodoItem.class);
 	}
 
 }

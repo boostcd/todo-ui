@@ -26,20 +26,22 @@ public class ItemController {
 	
 	@RequestMapping("/list/{id}/items")
 	public String listItems(@PathVariable int id, Model model) {
-		List<TodoItem> listItems = itemService.getItemsByList(id);
-		model.addAttribute("listItems", listItems);
-		return "listItems";
+		List<TodoItem> items = itemService.getItemsByList(id);
+		model.addAttribute("items", items);
+		return "items";
 	}
-		
-	@PostMapping("/item")
-	public String itemSubmit(@ModelAttribute TodoItem item) {
-		itemService.updateItem(item);
-		return "redirect:/list/" + item.getId() + "/items";
-	}
+	
+	@RequestMapping("/item/{1}/complete")
+	public String complete(@PathVariable int id, Model model) {
+		TodoItem item = itemService.complete(id);
+		List<TodoItem> items = itemService.getItemsByList(item.getListId());
+		model.addAttribute("items", items);
+		return "items";		
+	}	
 	
 	@PostMapping("/addItem")
 	public String addItemSubmit(@ModelAttribute TodoItem item) {
-		itemService.addItem(item);
+		itemService.addItem(item.getListId(), item);
 		return "redirect:/list/" + item.getId() + "/items";
 	}	
 	

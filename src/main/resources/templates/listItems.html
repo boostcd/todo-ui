@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+
+<body>
+	<div layout:fragment="content">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb" th:classappend="${@environment.getProperty('theme.nav.colour')}">
+				<li class="breadcrumb-item"><a class="text-light" href="/">Lists</a></li>
+				<li class="breadcrumb-item text-light active" aria-current="page">Wallets</li>
+			</ol>
+		</nav>
+		<div class="row">
+			<div class="col">
+				<div th:each="item : ${items}" class="card mb-3" style="width: 50rem;" id="item">
+					<div class="card-body">
+						<h4 class="card-title" th:text="${list.id}" />
+						<h5 class="card-subtitle mb-2 text-muted" th:text="${item.state}" />
+						<p class="card-text" th:text="${item.notes}"></p>
+						<a th:href="@{'/item/' + ${item.id} + '/complete'}" class="btn btn-sm"
+							th:classappend="${@environment.getProperty('theme.button.colour')}">Complete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="card">
+				<h2 class="card-header">Add Item</h2>
+				<div class="card-body">
+					<form class="form-group" action="#" th:action="@{/addItem}" th:object="${item}"
+						method="post">
+						<label for="notes">Notes</label>
+						<input type="text" class="form-control form-control-lg mb-2" th:field="*{notes}" id="notes" />
+						<button type="submit" class="btn"
+							th:classappend="${@environment.getProperty('theme.button.colour')}">Add</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
